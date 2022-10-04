@@ -13,29 +13,37 @@ public class Display {
             }
             System.out.print("#\n");
         }
-        System.out.print("#".repeat(18)+"\n");
-        System.out.println(" "+" 1 2 3 4 5 6 7 8"+" ");
+        System.out.print("#".repeat(2+(grid.get(0).size()*2))+"\n");
+        if (grid.get(0).size() == 8) {
+            System.out.println("  a b c d e f g h ");
+        }else {
+            System.out.println("  a b c d e f g h i j k l ");
+        }
     }
-
 
 //################################################################################################//
 //################################################################################################//
 //################################################################################################//
 
     public static void chooseWherePlayX(ArrayList<ArrayList<String>> Grid) {
-        System.out.println("choose a value to put your piece (between 1 to 8)");
+        String letter = " abcdefghijkl";
+        System.out.println("choose a value to put your piece (between 1 to "+Grid.get(0).size()+")");
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
         try {
-            number = Integer.parseInt(var2.readLine());
-            if (number>8 || number<1) {
-                System.err.println("choose a correct value (1-8)");
+            number = letter.indexOf(var2.readLine());
+            if (number>Grid.get(0).size() || number<1) {
+                System.err.println("choose a correct value (1- "+Grid.get(0).size()+")");
                 chooseWherePlayX(Grid);
                 return; 
             } 
         }catch (IOException e){
-            System.err.println("choose a correct value (1-8)" + e.toString());
+            System.err.println("choose a correct value (1- "+Grid.get(0).size()+")" + e.toString());
+            chooseWherePlayX(Grid);
+            return;
+        }catch(NumberFormatException e) {
+            System.err.println("choose a correct number not a str : " + e.toString());
             chooseWherePlayX(Grid);
             return; 
         }
@@ -56,19 +64,24 @@ public class Display {
 
 
     public static void chooseWherePlayV(ArrayList<ArrayList<String>> Grid) {
-        System.out.println("choose a value to put your piece (between 1 to 8)");
+        String letter = " abcdefghijkl";
+        System.out.println("choose a value to put your piece (between 1 to  "+Grid.get(0).size()+")");
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
         try {
-            number = Integer.parseInt(var2.readLine());
-            if (number>8 || number<1) {
-                System.err.println("choose a correct value (1-8)");
+            number = letter.indexOf(var2.readLine());
+            if (number>Grid.get(0).size() || number<1) {
+                System.err.println("choose a correct value (1- "+Grid.get(0).size()+")");
                 chooseWherePlayV(Grid);
                 return; 
             } 
         }catch (IOException e){
-            System.err.println("choose a correct value (1-8)" + e.toString());
+            System.err.println("choose a correct value (1- "+Grid.get(0).size()+")" + e.toString());
+            chooseWherePlayV(Grid);
+            return; 
+        }catch(NumberFormatException e) {
+            System.err.println("choose a correct number not a str : " + e.toString());
             chooseWherePlayV(Grid);
             return; 
         }
@@ -90,19 +103,24 @@ public class Display {
 
 
     public static void chooseWherePlayO(ArrayList<ArrayList<String>> Grid) {
-        System.out.println("choose a value to put your piece (between 1 to 8)");
+        String letter = " abcdefghijkl";
+        System.out.println("choose a value to put your piece (between 1 to  "+Grid.get(0).size()+")");
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
         try {
-            number = Integer.parseInt(var2.readLine());
-            if (number>8 || number<1) {
-                System.err.println("choose a correct value (1-8)");
+            number = letter.indexOf(var2.readLine());
+            if (number>Grid.get(0).size() || number<1) {
+                System.err.println("choose a correct value (1- "+Grid.get(0).size()+")");
                 chooseWherePlayO(Grid);
                 return; 
             } 
         }catch (IOException e){
-            System.err.println("choose a correct value (1-8)" + e.toString());
+            System.err.println("choose a correct value (1- "+Grid.get(0).size()+")" + e.toString());
+            chooseWherePlayO(Grid);
+            return; 
+        }catch(NumberFormatException e) {
+            System.err.println("choose a correct number not a str : " + e.toString());
             chooseWherePlayO(Grid);
             return; 
         }
