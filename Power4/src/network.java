@@ -1,4 +1,3 @@
-package Power4.src;
-public class network {
+public class Network {
     
 }

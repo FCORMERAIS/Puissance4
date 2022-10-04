@@ -1,4 +1,3 @@
-package Power4.src;
-public class verify {
+public class Verify {
     
 }
