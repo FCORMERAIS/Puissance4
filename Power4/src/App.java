@@ -1,14 +1,23 @@
-
 public class App {
-    public static void main(String[] args) throws Exception {      
-        Grid grid = new Grid(3);
-        while(!Verify.Win()) {
-            Display.printGrid(grid.grille);
-            Display.chooseWherePlayX(grid.grille);
-            Display.printGrid(grid.grille);
-            Display.chooseWherePlayV(grid.grille);
-            Display.printGrid(grid.grille);
-            Display.chooseWherePlayO(grid.grille);
-        }   
+    public static void main(String[] args) throws Exception {
+        int number = 2;
+        Grid grid = new Grid(number);
+        if (number == 3) {
+            while(!Verify.Win(grid.grille)) {
+                Display.printGrid(grid.grille);
+                Display.chooseWherePlayX(grid.grille);
+                Display.printGrid(grid.grille);
+                Display.chooseWherePlayV(grid.grille);
+                Display.printGrid(grid.grille);
+                Display.chooseWherePlayO(grid.grille);
+            }
+        }else {
+            while(!Verify.Win(grid.grille)) {
+                Display.printGrid(grid.grille);
+                Display.chooseWherePlayX(grid.grille);
+                Display.printGrid(grid.grille);
+                Display.chooseWherePlayO(grid.grille);
+            }
+        }
     }
 }

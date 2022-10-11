@@ -4,20 +4,32 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class display {
+public class Display {
     public static void printGrid(ArrayList<ArrayList<String>> grid) {
         for (List<String> list : grid) {
-            System.out.print("#|");
             for (String caraString : list) {
-                System.out.print(caraString+'|');
+                switch (caraString) {
+                    case "X" :
+                        System.out.print("├"+ConsoleColors.PURPLE + caraString +ConsoleColors.RESET + "┤");
+                        continue;
+                    case "O" : 
+                        System.out.print("├"+ConsoleColors.BLUE + caraString +ConsoleColors.RESET + "┤");
+                        continue;
+                    case "V" :
+                        System.out.print("├"+ConsoleColors.GREEN + caraString +ConsoleColors.RESET + "┤");
+                        continue;
+                    default : 
+                        System.out.print("├"+caraString +ConsoleColors.RESET + "┤");
+                        continue;
+                }
             }
-            System.out.print("#\n");
+            System.out.print("\n");
         }
-        System.out.print("#".repeat(2+(grid.get(0).size()*2))+"\n");
+        System.out.print("└"+ "┴".repeat((grid.get(0).size()*3)-2)+"┘"+"\n");
         if (grid.get(0).size() == 8) {
-            System.out.println("  a b c d e f g h ");
+            System.out.println(" a  b  c  d  e  f  g  h ");
         }else {
-            System.out.println("  a b c d e f g h i j k l ");
+            System.out.println(" a  b  c  d  e  f  g  h  i  j  k  l ");
         }
     }
 
