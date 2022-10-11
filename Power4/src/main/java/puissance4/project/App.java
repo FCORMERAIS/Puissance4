@@ -3,6 +3,7 @@ package main.java.puissance4.project;
 public class App {
     public static void main(String[] args) throws Exception {   
         int number = 3;   
+        System.out.println("U+1FBCx9");
         Grid grid = new Grid(number);
         if (number == 3) {
             while(!Verify.Win(grid.grille)) {
