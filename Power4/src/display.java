@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Display {
+public class display {
     public static void printGrid(ArrayList<ArrayList<String>> grid) {
         for (List<String> list : grid) {
             System.out.print("#|");

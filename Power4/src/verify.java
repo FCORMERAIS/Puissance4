@@ -1,4 +1,4 @@
-public class Verify {
+public class verify {
     public static boolean Win() {
         return false;
     }
