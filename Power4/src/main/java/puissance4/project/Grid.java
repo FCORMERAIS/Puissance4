@@ -1,3 +1,5 @@
+package main.java.puissance4.project;
+
 import java.util.ArrayList;
 
 public class Grid {

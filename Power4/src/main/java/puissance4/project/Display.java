@@ -1,3 +1,5 @@
+package main.java.puissance4.project;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,9 +9,22 @@ import java.util.List;
 public class Display {
     public static void printGrid(ArrayList<ArrayList<String>> grid) {
         for (List<String> list : grid) {
-            System.out.print("#|");
+            System.out.print("#│");
             for (String caraString : list) {
-                System.out.print(caraString+'|');
+                switch (caraString) {
+                    case "X" :
+                        System.out.print(ConsoleColors.PURPLE + caraString +ConsoleColors.RESET + "│");
+                        continue;
+                    case "O" : 
+                        System.out.print(ConsoleColors.BLUE + caraString +ConsoleColors.RESET + "│");
+                        continue;
+                    case "V" :
+                        System.out.print(ConsoleColors.GREEN + caraString +ConsoleColors.RESET + "│");
+                        continue;
+                    default : 
+                        System.out.print(caraString +ConsoleColors.RESET + "│");
+                        continue;
+                }
             }
             System.out.print("#\n");
         }

@@ -1,3 +1,4 @@
+package main.java.puissance4.project;
 
 public class App {
     public static void main(String[] args) throws Exception {   
