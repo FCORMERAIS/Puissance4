@@ -1,4 +1,4 @@
-package main.java.puissance4.project;
+package puissance4.project;
 
 public enum Player {
     Player1,

@@ -1,4 +1,4 @@
-package main.java.puissance4.project;
+package puissance4.project;
 
 import java.util.ArrayList;
 
