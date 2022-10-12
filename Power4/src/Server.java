@@ -19,16 +19,16 @@ public class Server {
                 Display.printGrid(server.grid.grille);
                 server.chooseWherePlayX(server.grid.grille);
                 Display.printGrid(server.grid.grille);
-                server.chooseWherePlayV(server.grid.grille);
+                server.chooseWherePlayX(server.grid.grille);
                 Display.printGrid(server.grid.grille);
-                server.chooseWherePlayO(server.grid.grille);
+                server.chooseWherePlayX(server.grid.grille);
             }
         }else {
             while(!Verify.Win(server.grid.grille)) {
                 Display.printGrid(server.grid.grille);
                 server.chooseWherePlayX(server.grid.grille);
                 Display.printGrid(server.grid.grille);
-                server.chooseWherePlayO(server.grid.grille);
+                server.chooseWherePlayX(server.grid.grille);
             }
         } 
     }
