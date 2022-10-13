@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Display {
-    public static void printGrid(ArrayList<ArrayList<String>> grid) {
+    protected static void printGrid(ArrayList<ArrayList<String>> grid) {
         for (List<String> list : grid) {
             for (String caraString : list) {
                 switch (caraString) {
@@ -39,7 +39,7 @@ public class Display {
 //################################################################################################//
 //################################################################################################//
 
-    public static void chooseWherePlay(ArrayList<ArrayList<String>> Grid, Player player) {
+    protected static void chooseWherePlay(ArrayList<ArrayList<String>> Grid, Player player) {
         String letter = " abcdefghijkl";
         System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to "+Grid.get(0).size()+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);

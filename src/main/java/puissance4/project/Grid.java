@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Grid {
 
-    public ArrayList<ArrayList<String>> grille;
+    protected ArrayList<ArrayList<String>> grille;
 
-    public Grid(int number) {
+    protected Grid(int number) {
         if (number == 2) {
             grille = new ArrayList<ArrayList<String>>();
             for (int j = 0 ; j < 6; j++) {

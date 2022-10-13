@@ -3,7 +3,7 @@ package puissance4.project;
 import java.util.Random;
 
 public class App {
-    public static void main(String[] args) throws Exception {   
+    protected static void main(String[] args) throws Exception {   
         int number = 2;
         Player playerPlay = PlayerAleatoy(number);
         Grid grid = new Grid(number);
@@ -14,7 +14,7 @@ public class App {
         }
     }
 
-    public static Player NextPlayer(int playerNb,Player player) {
+    private static Player NextPlayer(int playerNb,Player player) {
         switch (player) {
             case Player1:
                 return Player.Player2;
@@ -29,7 +29,7 @@ public class App {
         return NextPlayer(playerNb, player);
     }
 
-    public static Player PlayerAleatoy(int playerNb) {
+    private static Player PlayerAleatoy(int playerNb) {
         Random rnd = new Random();
         int random = rnd.nextInt(playerNb);
         System.out.println(random);

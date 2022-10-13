@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Verify {
 
-    public static boolean Egality(ArrayList<ArrayList<String>> Grid) {
+    protected static boolean Egality(ArrayList<ArrayList<String>> Grid) {
         for (int i = 0; i<Grid.get(0).size();i++) {
             if (Grid.get(0).get(i)==" ") {
                 return false;
@@ -14,7 +14,7 @@ public class Verify {
         return true;
     }
 
-    public static boolean Win(ArrayList<ArrayList<String>> Grid) {
+    protected static boolean Win(ArrayList<ArrayList<String>> Grid) {
         // horizontalCheck
         for (int j = 0; j<Grid.size()-3 ; j++ ){
             for (int i = 0; i<Grid.get(0).size(); i++){
