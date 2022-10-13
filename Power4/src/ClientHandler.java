@@ -1,9 +1,11 @@
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
 
 public class ClientHandler implements Runnable {
 
+    public static final String player = null;
     private SocketChannel socket = null;
     private Server server = null;
 
@@ -35,7 +37,7 @@ public class ClientHandler implements Runnable {
                 }
                 String message = new String(bytes.array(),"UTF-8");
                 if(server != null){
-                    server.broadcast(message,this);
+                    ((Server) server).broadcast(message,this);
                 }
                 else {
                     System.out.println(message);
@@ -65,5 +67,23 @@ public class ClientHandler implements Runnable {
         }
 
     }
-    
+
+    public void chooseWherePlay(ArrayList<ArrayList<String>> grille) {
+        try {
+            send("Choose where you want to play");
+            String message = promptForString();
+            int x = Integer.parseInt(message);
+            int y = 0;
+            while (grille.get(x).get(y) != " ") {
+                y++;
+            }
+            grille.get(x).set(y, "X");
+        } catch (IOException e) {
+            System.err.println(e.toString());
+        }
+    }
+
+    private String promptForString() {
+        return null;
+    }
 }

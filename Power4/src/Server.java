@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
@@ -35,7 +34,7 @@ public class Server {
 
     private void chooseWherePlayX(ArrayList<ArrayList<String>> grille) {
         for (ClientHandler client : clients) {
-            if (client.player == "X") {
+            if (ClientHandler.player == "X") {
                 client.chooseWherePlay(grille);
             }
         }
@@ -58,10 +57,14 @@ public class Server {
         }
     }
 
-    public void broadcast(String message, ClientHandler handler) throws IOException{
+    public void broadcast(String message, ClientHandler clientHandler) {
         for (ClientHandler client : clients) {
-            if(client != handler){
-                client.send(message);
+            if (client != clientHandler) {
+                try {
+                    client.send(message);
+                } catch (IOException e) {
+                    System.err.println(e.toString());
+                }
             }
         }
     }

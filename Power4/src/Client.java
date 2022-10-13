@@ -13,9 +13,9 @@ public class Client {
             Thread clientThread = new Thread(client);
             clientThread.start();
             while(true){
-                String message = promptForString();
+                String game = promptForString();
                 try {
-                    client.send(message);
+                    client.send(game);
                 }
                 catch(IOException e){
                     System.err.println(e.toString());
