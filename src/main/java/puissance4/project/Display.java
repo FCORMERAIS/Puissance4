@@ -39,7 +39,7 @@ public class Display {
 //################################################################################################//
 //################################################################################################//
 
-    public static void chooseWherePlayX(ArrayList<ArrayList<String>> Grid) {
+    public static void chooseWherePlay(ArrayList<ArrayList<String>> Grid, Player player) {
         String letter = " abcdefghijkl";
         System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to "+Grid.get(0).size()+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);
@@ -49,103 +49,35 @@ public class Display {
             number = letter.indexOf(var2.readLine());
             if (number>Grid.get(0).size() || number<1) {
                 System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-                chooseWherePlayX(Grid);
+                chooseWherePlay(Grid,player);
                 return; 
             } 
         }catch (IOException e){
             System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")" + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayX(Grid);
+            chooseWherePlay(Grid,player);
             return;
         }catch(NumberFormatException e) {
             System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayX(Grid);
+            chooseWherePlay(Grid,player);
             return; 
         }
         for (int i = Grid.size()-1; i >=0 ; i--) {
             if (Grid.get(i).get(number-1) == " ") {
-                Grid.get(i).set(number-1,"X");
-                return; 
+                switch(player) {
+                    case Player1 :
+                        Grid.get(i).set(number-1,"X");
+                        return;
+                    case Player2 : 
+                        Grid.get(i).set(number-1,"O");
+                        return;
+                    case Player3 : 
+                        Grid.get(i).set(number-1,"V");
+                        return;
+                }
             }
         }
         System.err.println(ConsoleColors.RED+"the column you choose is already completed ! "+ConsoleColors.RESET);
-        chooseWherePlayX(Grid);
-        return; 
-    }
-
-//################################################################################################//
-//################################################################################################//
-//################################################################################################//
-
-
-    public static void chooseWherePlayV(ArrayList<ArrayList<String>> Grid) {
-        String letter = " abcdefghijkl";
-        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to  "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-        InputStreamReader var = new InputStreamReader(System.in);
-        BufferedReader var2 = new BufferedReader(var);
-        int number = 0;
-        try {
-            number = letter.indexOf(var2.readLine());
-            if (number>Grid.get(0).size() || number<1) {
-                System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-                chooseWherePlayV(Grid);
-                return; 
-            } 
-        }catch (IOException e){
-            System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")" + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayV(Grid);
-            return; 
-        }catch(NumberFormatException e) {
-            System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayV(Grid);
-            return; 
-        }
-        for (int i = Grid.size()-1; i >=0 ; i--) {
-            if (Grid.get(i).get(number-1) == " ") {
-                Grid.get(i).set(number-1,"V");
-                return;
-            }
-        }
-        System.err.println(ConsoleColors.RED+"the column you choose is already completed ! "+ConsoleColors.RESET);
-        chooseWherePlayV(Grid);
-        return; 
-    }
-
-//################################################################################################//
-//################################################################################################//
-//################################################################################################//
-
-
-
-    public static void chooseWherePlayO(ArrayList<ArrayList<String>> Grid) {
-        String letter = " abcdefghijkl";
-        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to  "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-        InputStreamReader var = new InputStreamReader(System.in);
-        BufferedReader var2 = new BufferedReader(var);
-        int number = 0;
-        try {
-            number = letter.indexOf(var2.readLine());
-            if (number>Grid.get(0).size() || number<1) {
-                System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-                chooseWherePlayO(Grid);
-                return; 
-            } 
-        }catch (IOException e){
-            System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")" + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayO(Grid);
-            return; 
-        }catch(NumberFormatException e) {
-            System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
-            chooseWherePlayO(Grid);
-            return; 
-        }
-        for (int i = Grid.size()-1; i >=0 ; i--) {
-            if (Grid.get(i).get(number-1) == " ") {
-                Grid.get(i).set(number-1,"O");
-                return;
-            }
-        }
-        System.err.println(ConsoleColors.RED+"the column you choose is already completed ! "+ConsoleColors.RESET);
-        chooseWherePlayO(Grid);
+        chooseWherePlay(Grid,player);
         return; 
     }
 }

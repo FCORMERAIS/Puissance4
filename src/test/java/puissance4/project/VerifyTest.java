@@ -3,12 +3,14 @@ package puissance4.project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class VerifyTest 
 {
     /**
      * Rigorous Test :-)
@@ -18,6 +20,18 @@ public class AppTest
     {
         assertTrue( true );
     }
+
+    @Test
+    public void testEgality() {
+        Grid grid = new Grid(3);
+        for (int i = 0; i < grid.grille.get(0).size(); i++) {
+            grid.grille.get(0).set(i, "X");
+        }
+        assertTrue(Verify.Egality(grid.grille));
+        grid.grille.get(0).set(0, " ");
+        assertFalse(Verify.Egality(grid.grille));
+    }
+
     @Test
     public void tesstVerify() {
         Grid grid = new Grid(3);
@@ -59,4 +73,7 @@ public class AppTest
         grid.grille.get(0).set(3, "X");
         assertTrue(Verify.Win(grid.grille));
     }
+
+
+    
 }
