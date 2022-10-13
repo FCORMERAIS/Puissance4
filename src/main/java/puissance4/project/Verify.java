@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class Verify {
 
+    /**
+     * This method verify if the grid is full or not, if its full return true 
+     * @param Grid it's the grid that we verified if its full or not 
+     * @return the result of "if the gris is full"
+     */
     protected static boolean Egality(ArrayList<ArrayList<String>> Grid) {
         for (int i = 0; i<Grid.get(0).size();i++) {
             if (Grid.get(0).get(i)==" ") {
@@ -14,6 +19,11 @@ public class Verify {
         return true;
     }
 
+    /** 
+     * This method verify if a user have won the game Power 4, we verified if there is 4 elements align and if it is we return true and annonced the winner
+     * @param Grid it's the grid that we verified if a user have won or not
+     * @return the result of "someone have won"
+     */
     protected static boolean Win(ArrayList<ArrayList<String>> Grid) {
         // horizontalCheck
         for (int j = 0; j<Grid.size()-3 ; j++ ){

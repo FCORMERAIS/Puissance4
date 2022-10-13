@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Display {
+    /**
+     * This method is use for show to the user the grid we show the grid at every actions of the game
+     * @param grid it's the grid we want to show
+     */
     protected static void printGrid(ArrayList<ArrayList<String>> grid) {
         for (List<String> list : grid) {
             for (String caraString : list) {
@@ -39,6 +43,11 @@ public class Display {
 //################################################################################################//
 //################################################################################################//
 
+    /**
+     * this method is for the player who's play it ask where the player want to play and verify if it's possible.
+     * @param Grid it's the grid where the player can played
+     * @param player it's the Player who's play
+     */
     protected static void chooseWherePlay(ArrayList<ArrayList<String>> Grid, Player player) {
         String letter = " abcdefghijkl";
         System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to "+Grid.get(0).size()+")"+ConsoleColors.RESET);

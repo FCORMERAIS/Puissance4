@@ -14,6 +14,12 @@ public class App {
         }
     }
 
+    /**
+     * this method is for take the next player to play 
+     * @param playerNb it's the number of player who is playing power 4 
+     * @param player it's the player that have played
+     * @return we return the next player 
+     */
     private static Player NextPlayer(int playerNb,Player player) {
         switch (player) {
             case Player1:
@@ -29,6 +35,11 @@ public class App {
         return NextPlayer(playerNb, player);
     }
 
+    /**
+     * this method is usefull for choose an aleatory player 
+     * @param playerNb it's the number of player
+     * @return we return the Player with an index in the enum Player
+     */
     private static Player PlayerAleatoy(int playerNb) {
         Random rnd = new Random();
         int random = rnd.nextInt(playerNb);

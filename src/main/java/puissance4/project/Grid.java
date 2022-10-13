@@ -6,6 +6,10 @@ public class Grid {
 
     protected ArrayList<ArrayList<String>> grille;
 
+    /**
+     * this constructor make the grid for the game and adapt the size by the number of player
+     * @param number it's the number of players who's wants to play (2 or 3)
+     */
     protected Grid(int number) {
         if (number == 2) {
             grille = new ArrayList<ArrayList<String>>();
