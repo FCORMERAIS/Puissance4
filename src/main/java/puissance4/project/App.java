@@ -45,6 +45,7 @@ public class App {
                                 StartGame();
                                 break;
                             }
+                            break;
                         case '2' :
                             System.out.println(ConsoleColors.PURPLE_UNDERLINED+"you choose Client"+ConsoleColors.RESET);
                             Client.LaunchClient();
@@ -53,6 +54,7 @@ public class App {
                             StartGame();
                             break;
                 }
+                break;
             case '2':
                 System.out.println(ConsoleColors.PURPLE_UNDERLINED+"You choose to see the rules"+ConsoleColors.RESET);
                 System.out.println(ConsoleColors.GREEN_BOLD+"The object of the game is to line up 4 pawns on a grid. Each player plays alternately by dropping one of their tokens from the top of one of the columns. This token therefore fills the lowest unoccupied space in the column. Good luck !"+ConsoleColors.RESET);
