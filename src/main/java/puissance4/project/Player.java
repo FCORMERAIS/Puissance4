@@ -1,6 +1,5 @@
 package puissance4.project;
 
-
 /**
  * this enum is all the player possible to play with
  */

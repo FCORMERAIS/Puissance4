@@ -50,18 +50,18 @@ public class Display {
      */
     protected static int chooseWherePlay(ArrayList<ArrayList<String>> Grid) {
         String letter = " abcdefghijkl";
-        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to "+Grid.get(0).size()+")"+ConsoleColors.RESET);
+        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between a to "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
         try {
             number = letter.indexOf(var2.readLine());
             if (number>Grid.get(0).size() || number<1) {
-                System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")"+ConsoleColors.RESET);
+                System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
                 return chooseWherePlay(Grid);
             } 
         }catch (IOException e){
-            System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")" + e.toString()+ConsoleColors.RESET);
+            System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size())+")" + e.toString()+ConsoleColors.RESET);
             return chooseWherePlay(Grid);
         }catch(NumberFormatException e) {
             System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
@@ -76,6 +76,12 @@ public class Display {
         return chooseWherePlay(Grid);
     }
     
+    /**
+     * this method is usefull for play at the index choose to the user with the string we want 
+     * @param Grid the grid we want to
+     * @param player
+     * @param index
+     */
     public static void played(ArrayList<ArrayList<String>> Grid,String player, int index ) {
         for (int i = Grid.size()-1; i >= 0; i--) {
             if (Grid.get(i).get(index-1) == " ") {

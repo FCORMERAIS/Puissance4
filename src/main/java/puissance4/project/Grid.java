@@ -11,7 +11,7 @@ public class Grid {
      * @param number it's the number of players who's wants to play (2 or 3)
      */
     protected Grid(int number) {
-        if (number == 2) {
+        if (number == 2) { // grid for 2 players
             grille = new ArrayList<ArrayList<String>>();
             for (int j = 0 ; j < 6; j++) {
                 ArrayList<String> tempo = new ArrayList<String>();
@@ -20,7 +20,7 @@ public class Grid {
                 }
                 grille.add(tempo);
             }
-        }else {
+        }else {// grid for 3 players
             grille = new ArrayList<ArrayList<String>>();
             for (int j = 0 ; j < 10; j++) {
                 ArrayList<String> tempo = new ArrayList<String>();
