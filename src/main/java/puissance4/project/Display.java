@@ -48,14 +48,16 @@ public class Display {
      * @param Grid it's the grid where the player can played
      * @param player it's the Player who's play
      */
-    protected static int chooseWherePlay(ArrayList<ArrayList<String>> Grid) {
+    protected static String chooseWherePlay(ArrayList<ArrayList<String>> Grid) {
         String letter = " abcdefghijkl";
         System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between a to "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
+        String choose = "";
         try {
-            number = letter.indexOf(var2.readLine());
+            choose = var2.readLine();
+            number = letter.indexOf(choose);
             if (number>Grid.get(0).size() || number<1) {
                 System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
                 return chooseWherePlay(Grid);
@@ -69,7 +71,7 @@ public class Display {
         }
         for (int i = Grid.size()-1; i >=0 ; i--) {
             if (Grid.get(i).get(number-1) == " ") {
-                return number;
+                return choose;
             }
         }
         System.err.println(ConsoleColors.RED+"the column you choose is already completed ! "+ConsoleColors.RESET);
@@ -82,10 +84,12 @@ public class Display {
      * @param player
      * @param index
      */
-    public static void played(ArrayList<ArrayList<String>> Grid,String player, int index ) {
+    public static void played(ArrayList<ArrayList<String>> Grid,String player, String indexString ) {
+        String letter = "abcdefghijkl";
+        int index = letter.indexOf(indexString);
         for (int i = Grid.size()-1; i >= 0; i--) {
-            if (Grid.get(i).get(index-1) == " ") {
-                Grid.get(i).set(index-1, player);
+            if (Grid.get(i).get(index) == " ") {
+                Grid.get(i).set(index, player);
                 return;
             }
         }

@@ -21,15 +21,15 @@ public class Client {
                 String Turn = Listen(clientSocket);// we take the message from the server
                 if (Turn.charAt(0) == 'Y') { // if the first carachter of the message from the server is Y that mean is our turn
                     System.out.println(ConsoleColors.BLUE_UNDERLINED+"ITS YOUR TURN ! "+ConsoleColors.RESET);
-                    int choose = Display.chooseWherePlay(grille.grille); 
-                    String message = "Turn " + Turn.charAt(10) +" "+ Integer.toString(choose);// we create a message with the index that the client have played and with the Symbol that represent the player
+                    String choose = Display.chooseWherePlay(grille.grille); 
+                    String message = "Turn " + Turn.charAt(10) +" "+ choose;// we create a message with the index that the client have played and with the Symbol that represent the player
                     ByteBuffer bytes = ByteBuffer.wrap(message.getBytes("UTF-8"));
                     while(bytes.hasRemaining()) {// we send all the message to the server
                         clientSocket.write(bytes);
                     }
                 }
                 String Message = Listen(clientSocket);// we lissen for a message from the server. the message is the played that have been 
-                Display.played(grille.grille,String.valueOf(Message.charAt(5)), Integer.parseInt(String.valueOf(Message.charAt(7)))); // we update the grid
+                Display.played(grille.grille,String.valueOf(Message.charAt(5)), String.valueOf(Message.charAt(7))); // we update the grid
                 Display.printGrid(grille.grille);// and we shos the grid
             }
         }catch (IOException e) {
