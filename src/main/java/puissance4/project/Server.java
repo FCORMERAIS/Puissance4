@@ -6,6 +6,8 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class Server {
@@ -19,20 +21,38 @@ public class Server {
                 SocketChannel clientSocket = serverSocket.accept();
                 System.out.println("Un client s'est connecté ! ");
                 listClient.add(clientSocket);
-                Listen(clientSocket);
             }
         }catch (IOException e) {
             System.err.println(e.toString());
         }
         Player playerPlay = PlayerAleatoy(numberPlayer);
         Grid grid = new Grid(numberPlayer);
-        while(!Verify.Win(grid.grille)&& !Verify.Egality(grid.grille)) {
-            Display.printGrid(grid.grille);
-            Display.chooseWherePlay(grid.grille,playerPlay);
-            playerPlay = NextPlayer(numberPlayer, playerPlay);
+        Map<Player, SocketChannel> dictionary = new HashMap<Player, SocketChannel>();
+        for (int i = 0; i < listClient.size(); i++) {
+            Player player;
+            if (i==0) {player = Player.Player1;}else if (i==1) {player = Player.Player2;}else {player = Player.Player3;}
+            dictionary.put(player, listClient.get(i));
         }
-        for (SocketChannel socketChannel : listClient) {
-            broadcast("La partie est maintenant terminé ! ",socketChannel);
+        while(!Verify.Win(grid.grille)&& !Verify.Egality(grid.grille)) {
+            for (SocketChannel socketChannel : listClient) {
+                if (socketChannel == dictionary.get(playerPlay)) {
+                    broadcast("Your turn",socketChannel);
+                }else {
+                    broadcast("Turn",socketChannel);
+                }
+            }
+            String Message = "";
+            try {
+                Message = Client.Listen(dictionary.get(playerPlay));
+            }catch (IOException e) {
+                System.err.println(e.toString());
+            }
+            for (SocketChannel socketChannel : listClient) {
+                broadcast(Message, socketChannel);
+            }
+            playerPlay = NextPlayer(numberPlayer, playerPlay);
+            Display.played(grid.grille,String.valueOf(Message.charAt(5)), Integer.parseInt(String.valueOf(Message.charAt(7))));
+            Display.printGrid(grid.grille);
         }
     }
 
@@ -45,17 +65,6 @@ public class Server {
         }catch(IOException e){
             System.err.println(e.toString());
         }
-    }
-
-    static void Listen(SocketChannel clientSocket) throws IOException {
-        ByteBuffer bytes = ByteBuffer.allocate(1024);
-        int bytesRead = clientSocket.read(bytes);
-        if (bytesRead <= 0 ) {
-            clientSocket.close();
-            return;
-        }
-        String message = new String(bytes.array(),"UTF-8");
-        System.out.println(message);
     }
 
     /**

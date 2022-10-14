@@ -28,7 +28,7 @@ public class Verify {
         // horizontalCheck
         for (int j = 0; j<Grid.size()-3 ; j++ ){
             for (int i = 0; i<Grid.get(0).size(); i++){
-                if (Grid.get(j).get(i) == Grid.get(j+1).get(i) && Grid.get(j+2).get(i) == Grid.get(j+1).get(i) && Grid.get(j+2).get(i) == Grid.get(j+3).get(i) && Grid.get(j).get(i) != " "){
+                if (Grid.get(j).get(i).charAt(0) == Grid.get(j+1).get(i).charAt(0) && Grid.get(j+2).get(i).charAt(0) == Grid.get(j+1).get(i).charAt(0) && Grid.get(j+2).get(i).charAt(0) == Grid.get(j+3).get(i).charAt(0) && Grid.get(j).get(i).charAt(0) != ' ' ){
                     System.out.println(ConsoleColors.YELLOW_UNDERLINED+"le joueur " + Grid.get(j).get(i) + " a gagner !"+ConsoleColors.RESET);
                     return true;
                 }           
@@ -37,7 +37,7 @@ public class Verify {
         // verticalCheck
         for (int j = 0; j<Grid.get(0).size()-3 ; j++ ){
             for (int i = 0; i<Grid.size(); i++){
-                if (Grid.get(i).get(j) == Grid.get(i).get(j+1) && Grid.get(i).get(j+2) == Grid.get(i).get(j+1) && Grid.get(i).get(j+2) == Grid.get(i).get(j+3) && Grid.get(i).get(j) != " "){
+                if (Grid.get(i).get(j).charAt(0) == Grid.get(i).get(j+1).charAt(0) && Grid.get(i).get(j+2).charAt(0) == Grid.get(i).get(j+1).charAt(0) && Grid.get(i).get(j+2).charAt(0) == Grid.get(i).get(j+3).charAt(0) && Grid.get(i).get(j).charAt(0) != ' '){
                     System.out.println(ConsoleColors.YELLOW_UNDERLINED+"le joueur " + Grid.get(i).get(j) + " a gagner !"+ConsoleColors.RESET);
                     return true;
                 }           
@@ -46,7 +46,7 @@ public class Verify {
         // ascendingDiagonalCheck 
         for (int j = 3; j<Grid.get(0).size() ; j++ ){
             for (int i=0; i<Grid.size()-3; i++){
-                if (Grid.get(i).get(j) == Grid.get(i+1).get(j-1) && Grid.get(i+1).get(j-1) == Grid.get(i+2).get(j-2) && Grid.get(i+2).get(j-2) == Grid.get(i+3).get(j-3) && Grid.get(i).get(j) != " ") {
+                if (Grid.get(i).get(j).charAt(0) == Grid.get(i+1).get(j-1).charAt(0) && Grid.get(i+1).get(j-1).charAt(0) == Grid.get(i+2).get(j-2).charAt(0) && Grid.get(i+2).get(j-2).charAt(0) == Grid.get(i+3).get(j-3).charAt(0) && Grid.get(i).get(j).charAt(0) != ' ') {
                     System.out.println(ConsoleColors.YELLOW_UNDERLINED+"le joueur " + Grid.get(i).get(j) + " a gagner !"+ConsoleColors.RESET);
                     return true;
                 }
@@ -55,7 +55,7 @@ public class Verify {
         // descendingDiagonalCheck
         for (int j = 3; j<Grid.get(0).size() ; j++ ){
             for (int i=3; i<Grid.size(); i++){
-                if (Grid.get(i).get(j) == Grid.get(i-1).get(j-1) && Grid.get(i-1).get(j-1) == Grid.get(i-2).get(j-2) && Grid.get(i-2).get(j-2) == Grid.get(i-3).get(j-3) && Grid.get(i).get(j) != " ") {
+                if (Grid.get(i).get(j).charAt(0) == Grid.get(i-1).get(j-1).charAt(0) && Grid.get(i-1).get(j-1).charAt(0) == Grid.get(i-2).get(j-2).charAt(0) && Grid.get(i-2).get(j-2).charAt(0) == Grid.get(i-3).get(j-3).charAt(0) && Grid.get(i).get(j).charAt(0) != ' ') {
                     System.out.println(ConsoleColors.YELLOW_UNDERLINED+"le joueur " + Grid.get(i).get(j) + " a gagner !"+ConsoleColors.RESET);
                     return true;
                 }

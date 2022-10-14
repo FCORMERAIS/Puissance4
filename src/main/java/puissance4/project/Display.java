@@ -33,9 +33,9 @@ public class Display {
         }
         System.out.print("└"+ "┴".repeat((grid.get(0).size()*3)-2)+"┘"+"\n");
         if (grid.get(0).size() == 8) {
-            System.out.println(ConsoleColors.CYAN+" a  b  c  d  e  f  g  h ");
+            System.out.println(ConsoleColors.CYAN+" a  b  c  d  e  f  g  h "+ConsoleColors.RESET);
         }else {
-            System.out.println(ConsoleColors.CYAN+" a  b  c  d  e  f  g  h  i  j  k  l ");
+            System.out.println(ConsoleColors.CYAN+" a  b  c  d  e  f  g  h  i  j  k  l "+ConsoleColors.RESET);
         }
     }
 
@@ -48,7 +48,7 @@ public class Display {
      * @param Grid it's the grid where the player can played
      * @param player it's the Player who's play
      */
-    protected static void chooseWherePlay(ArrayList<ArrayList<String>> Grid, Player player) {
+    protected static int chooseWherePlay(ArrayList<ArrayList<String>> Grid) {
         String letter = " abcdefghijkl";
         System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between 1 to "+Grid.get(0).size()+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);
@@ -58,35 +58,30 @@ public class Display {
             number = letter.indexOf(var2.readLine());
             if (number>Grid.get(0).size() || number<1) {
                 System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")"+ConsoleColors.RESET);
-                chooseWherePlay(Grid,player);
-                return; 
+                return chooseWherePlay(Grid);
             } 
         }catch (IOException e){
             System.err.println(ConsoleColors.RED+"choose a correct value (1- "+Grid.get(0).size()+")" + e.toString()+ConsoleColors.RESET);
-            chooseWherePlay(Grid,player);
-            return;
+            return chooseWherePlay(Grid);
         }catch(NumberFormatException e) {
             System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
-            chooseWherePlay(Grid,player);
-            return; 
+            return chooseWherePlay(Grid); 
         }
         for (int i = Grid.size()-1; i >=0 ; i--) {
             if (Grid.get(i).get(number-1) == " ") {
-                switch(player) {
-                    case Player1 :
-                        Grid.get(i).set(number-1,"X");
-                        return;
-                    case Player2 : 
-                        Grid.get(i).set(number-1,"O");
-                        return;
-                    case Player3 : 
-                        Grid.get(i).set(number-1,"V");
-                        return;
-                }
+                return number;
             }
         }
         System.err.println(ConsoleColors.RED+"the column you choose is already completed ! "+ConsoleColors.RESET);
-        chooseWherePlay(Grid,player);
-        return; 
+        return chooseWherePlay(Grid);
+    }
+    
+    public static void played(ArrayList<ArrayList<String>> Grid,String player, int index ) {
+        for (int i = Grid.size()-1; i >= 0; i--) {
+            if (Grid.get(i).get(index-1) == " ") {
+                Grid.get(i).set(index-1, player);
+                return;
+            }
+        }
     }
 }
