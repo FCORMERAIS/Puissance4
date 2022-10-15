@@ -2,7 +2,7 @@
 
 Begin by clone the repository with the command
 
-> git clone https://github.com/FCORMERAIS/Puissance4.git
+```git clone https://github.com/FCORMERAIS/Puissance4.git ```
 
 verify you got the package tool Maven you can download it here 
 
