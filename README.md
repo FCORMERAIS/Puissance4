@@ -1,18 +1,26 @@
-## Getting Started
+## Getting started 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Begin by clone the repository with the command
 
-## Folder Structure
+> git clone https://github.com/FCORMERAIS/Puissance4.git
 
-The workspace contains two folders by default, where:
+verify you got the package tool Maven you can download it here 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+>https://maven.apache.org/download.cgi
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## For play 
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+You just need to launch the programm App.java is the folder Puissance4/src/main/java/puissance4/project After it the programm will launch and you can play 
 
-## Dependency Management
+## Technologies
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+For this project we have use : 
+*Java
+*Maven
+
+## Authors 
+
+The project have been made by :
+*Flavio CORMERAIS
+*Dylan HERVOUET 
+*Moustapha TOURABI
