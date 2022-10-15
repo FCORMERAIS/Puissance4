@@ -60,13 +60,17 @@ public class Server {
             try {
                 Message = Client.Listen(dictionary.get(playerPlay)); // we take the message from the client who has played 
             }catch (IOException e) {
-                System.err.println(e.toString());
+                System.err.println("Un Joueur s'est déconnecté");
             }
             for (SocketChannel socketChannel : listClient) {
                 broadcast(Message, socketChannel); // we send the same message to all Client, for update their grid with the play
             }
-            playerPlay = NextPlayer(numberPlayer, playerPlay);// we passed to the next player 
-            Display.played(grid.grille,String.valueOf(Message.charAt(5)),String.valueOf(Message.charAt(7)));// we use the method played to update the grid
+            playerPlay = NextPlayer(numberPlayer, playerPlay);// we passed to the next player
+            if (Message != "") {
+                Display.played(grid.grille,String.valueOf(Message.charAt(5)),String.valueOf(Message.charAt(7)));// we use the method played to update the grid
+            }else {
+                break;
+            }
         }
     }
 

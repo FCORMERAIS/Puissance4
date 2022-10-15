@@ -33,7 +33,7 @@ public class Client {
                 Display.printGrid(grille.grille);// and we shos the grid
             }
         }catch (IOException e) {
-            System.err.println(e.toString());
+            System.out.println("Un joueur s'est déconnecté : Fin de la partie ");
         }
     }
 
