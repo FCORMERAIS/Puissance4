@@ -12,7 +12,7 @@ public class App {
     /**
      * it's the menu for choose what do you want to do like be the server how many players, see rules etc..
      */
-    public static void StartGame() {
+    private static void StartGame() {
         System.out.println(ConsoleColors.GREEN+"Welcome to the game Power 4!\n1. Play\n2. Rules\n3. Exit"+ConsoleColors.RESET);
         try {
             InputStreamReader bis0 = new InputStreamReader(System.in);

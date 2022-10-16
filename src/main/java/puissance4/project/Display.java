@@ -50,7 +50,7 @@ public class Display {
      */
     protected static String chooseWherePlay(ArrayList<ArrayList<String>> Grid) {
         String letter = "abcdefghijkl";
-        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between a to "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
+        System.out.println(ConsoleColors.YELLOW+"choose a value to put your piece (between a to "+letter.charAt(Grid.get(0).size()-1)+")"+ConsoleColors.RESET);
         InputStreamReader var = new InputStreamReader(System.in);
         BufferedReader var2 = new BufferedReader(var);
         int number = 0;
@@ -58,12 +58,12 @@ public class Display {
         try {
             choose = var2.readLine();// we take the value that the Player has Played
             number = letter.indexOf(choose);
-            if (number>Grid.get(0).size() || number<0) { // we verify if it's a correct value
-                System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size())+")"+ConsoleColors.RESET);
+            if (number>Grid.get(0).size()-1 || number<0) { // we verify if it's a correct value
+                System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size()-1)+")"+ConsoleColors.RESET);
                 return chooseWherePlay(Grid); // if it's not a correct value we reload the method
             } 
         }catch (IOException e){
-            System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size())+")" + e.toString()+ConsoleColors.RESET);
+            System.err.println(ConsoleColors.RED+"choose a correct value (a- "+letter.charAt(Grid.get(0).size()-1)+")" + e.toString()+ConsoleColors.RESET);
             return chooseWherePlay(Grid);
         }catch(NumberFormatException e) {
             System.err.println(ConsoleColors.RED+"choose a correct number not a str : " + e.toString()+ConsoleColors.RESET);
