@@ -51,22 +51,6 @@ public class menu {
                 System.out.println("You chose an invalid option");
                 break;
         }
-    //    exemple // gameover = false
-        // gameover = true
-        // if (gameover == true) {
-        //     System.out.println("Do you want to play again? (Y/N)");
-        //     Scanner sc4 = new Scanner(System.in);
-        //     String choice4 = sc4.nextLine();
-        //     if (choice4.equals("Y")) {
-        //         System.out.println("You chose to play again");
-        //         Display.printGrid();
-        //     } else if (choice4.equals("N")) {
-        //         System.out.println("You chose to exit");
-        //     }
-        // }
-    // } catch (Exception e) {
-    //     System.out.println("You chose an invalid option");
-    // }
     }  
 }
 
